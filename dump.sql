@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 30 Janvier 2017 à 11:18
+-- Généré le :  Lun 30 Janvier 2017 à 11:21
 -- Version du serveur :  5.5.42
 -- Version de PHP :  7.0.0
 
@@ -13,6 +13,33 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `mon-potager`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `full_name` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `password`, `token`, `full_name`) VALUES
+(1, 'bob@gmail.com', 'secret', '1894240722', 'Bob'),
+(2, 'alice@gmail.com', 'secret', 'secret2', 'Alice'),
+(3, 'oscar@gmail.com', 'secret', 'secret3', 'Oscar'),
+(11, 'AAAA@AAAA.AAAA', 'AAAA', 'ss', 'fweijfijw'),
+(12, 'ijfwiejfijw@Jfeiwjf.fr', 'fekifjeirjfier', 'ssss', 'fjwioejfjwiejfijwi'),
+(13, 'wfehfuhwuhe@hfwhe.fr', 'wjeifjw', '1569659610', 'dewjfijweijfi'),
+(15, 'BBBB@BBBB.fr', 'BBBB', '520033858', 'BBBB');
 
 -- --------------------------------------------------------
 
@@ -42,6 +69,14 @@ INSERT INTO `vegetables` (`id`, `name`, `description`, `user_id`) VALUES
 --
 
 --
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `token` (`token`);
+
+--
 -- Index pour la table `vegetables`
 --
 ALTER TABLE `vegetables`
@@ -52,6 +87,11 @@ ALTER TABLE `vegetables`
 -- AUTO_INCREMENT pour les tables exportées
 --
 
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT pour la table `vegetables`
 --
